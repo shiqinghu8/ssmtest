@@ -1,0 +1,45 @@
+-------------------------------
+1.搭建环境
+2.如何完成Controller和viewer的映射
+3.如何把值传给Controller
+4.Controller如何把值传给viewer
+5.异常处理
+6.页面标签
+7.文件上传
+-------------------------------
+1.DispatcherServlet(配置在web.xml中)
+2.HandlerMapping(url和Controller和view映射关系)(可以查看它的继承关系找到需要具体用到的类)(一般用注解)
+3.InternalResourceViewResolver(配置前缀和后缀,prefix+view+suffix,找到相对应的view)
+4.值传给Controller
+	直接在方法里写参数
+	public String hello(@RequestParam("username") String username,Model model) {...}
+	public String hello(String username,Model model)  {...}
+	public String toIndex(HttpServletRequest request,Model model) {...}
+5.Controller把值传给view
+	用Model,Map
+	public String hello(String username,Model model) {model.addAttribute(...);}
+
+	@RequestMapping(value="/users",method=RequestMethod.GET)
+	public String list(Model model) {...}
+
+6.增删改查
+	--> rest风格
+	--> SpringMVC form标签
+	--> bean validation验证
+	--> json
+	--> @Pathvariable注解绑定它传过来的值到方法的参数上
+	--> @Validated
+	--> BindingResult br
+	--> 重定向   return "redirect:/.../...";
+	--> 上传文件
+	--> 文件下载
+	--> spring MVC拦截器
+	--> 返回字符串,返回JSON,返回页面
+
+
+
+
+
+
+
+
